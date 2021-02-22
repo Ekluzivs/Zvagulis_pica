@@ -306,6 +306,12 @@ class GUI2 extends JFrame
 			public void actionPerformed(ActionEvent e){
 				JFrame out = new JFrame();
 				out.setLayout(new GridLayout(10, 5));
+				log_V2 = new JLabel("Picerija", logo, 0);		
+				out.add(log_V2);				
+				date = new SimpleDateFormat("E yyyy-MM-dd HH:mm:ss").format(new Date());							
+				dat_laik2 = new JLabel(date);
+				out.add(dat_laik2);										
+				
 
 				galdanr_str = Galda_tf.getText();
 				V_str = V_tf.getText();
