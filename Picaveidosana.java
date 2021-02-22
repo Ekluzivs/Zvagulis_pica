@@ -36,7 +36,8 @@ class GUI2 extends JFrame
     private JPanel pogas_panel, kvant_panel,lielums_panel,pica_panel,sakum_Panelis, ievad_panelis, piegades_panelis, top1_panel, top2_panel, toppings_panel, toppings2_panel;
     private JCheckBox picas_box, lielums_box;
 	private JLabel log_V2,dat_laik2,galda_nr_op, V_op, adrese_op, kontakts_op, nauda_label, nauda_op;
-	public Double nauda = 0.0;
+	public Double a, nauda = 0.0;
+	public String b,c;
 	private JButton print, clear;
 	private ImageIcon print_icon, clear_icon;
 	String galdanr_str, V_str, adrese_str, kontakts_str, date;
@@ -209,6 +210,7 @@ class GUI2 extends JFrame
 			public void actionPerformed(ActionEvent e)
 			{
 				pica_op.setText((String)((JComboBox)e.getSource()).getSelectedItem());
+				b = (picas_box.getSelectedItem().toString());
 			}	
 		});
 		add(pica_panel);
@@ -229,6 +231,7 @@ class GUI2 extends JFrame
 			public void actionPerformed(ActionEvent e)
 			{
 				lielums_op.setText((String)((JComboBox)e.getSource()).getSelectedItem());
+				c = (lielums_box.getSelectedItem().toString());
 			}	
 		});
 		add(lielums_panel);
@@ -250,6 +253,7 @@ class GUI2 extends JFrame
 		{
 			public void actionPerformed(ActionEvent e){
 				kvant_op.setText((String)((JComboBox)e.getSource()).getSelectedItem());
+				a = Double.parseDouble(kvant_box.getSelectedItem().toString());
 			}
 		});
 		add(kvant_panel);
@@ -304,9 +308,36 @@ class GUI2 extends JFrame
 		print.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
+				if(b == "Studentu Pica"){
+					nauda += 3.25;
+				}else if(b  == "Vistas Kariju pica"){
+					nauda += 2.34;
+				}else if(b  == "Zemnieku Pica"){
+					nauda += 3.23;
+				}else if(b  == "Havaju pica"){
+					nauda += 5.75;
+				}else if(b  == "Kalifornijas Pica"){
+					nauda += 8.42;
+				}else if(b  == "amerikāņu pica"){
+					nauda += 9.22;
+				}
+
+				if(c == "20"){
+					nauda += 2.50;
+				}else if(c  == "30"){
+					nauda += 4.50;
+				}else if(c  == "50"){
+					nauda += 7.0;
+				}
+
+				nauda *= a;
+				String nauda2;
+				nauda2 = Double.toString(nauda);
+				JLabel rate_label = new JLabel("Sum: ");
+				JLabel rate_op_label = new JLabel(nauda2);
 				JFrame out = new JFrame();
 				out.setLayout(new GridLayout(10, 5));
-				log_V2 = new JLabel("Picerija", logo, 0);		
+				log_V2 = new JLabel("Picerija: čeks", logo, 0);		
 				out.add(log_V2);				
 				date = new SimpleDateFormat("E yyyy-MM-dd HH:mm:ss").format(new Date());							
 				dat_laik2 = new JLabel(date);
@@ -335,6 +366,8 @@ class GUI2 extends JFrame
 				out.add(pica_op);
 				out.add(lielums2_label);
 				out.add(lielums_op);
+				out.add(rate_label);
+				out.add(rate_op_label);
 				out.add(kvant_label);				
 				out.add(kvant_op);
 				out.pack();
