@@ -7,7 +7,7 @@ class GUI1
 		GUI2 bizness = new GUI2();	
 		bizness.Input();		
 		bizness.Toppings();
-	
+		bizness.Pica();
 				
 		bizness.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bizness.setLocationByPlatform(true);

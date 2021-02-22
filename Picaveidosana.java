@@ -8,11 +8,12 @@ class GUI2 extends JFrame
 {
     private JRadioButton res, pas;
     private ButtonGroup g;
-    private JLabel adrese, V, kontakts, Galda_nr, toppings_label, piegades_tips;
+    private JLabel pica_op,pica_label,pica2_Label,adrese, V, kontakts, Galda_nr, toppings_label, piegades_tips;
     private JTextField Galda_tf, V_tf, adrese_tf, kontakts_tf;
     private JCheckBox sipols, sampinjones, cisini, brokolis, paprika, siers;
-    private JPanel sakum_Panelis, ievad_panelis, piegades_panelis, top1_panel, top2_panel, toppings_panel, toppings2_panel;
-    public Double nauda = 0.0;
+    private JPanel pica_panel,sakum_Panelis, ievad_panelis, piegades_panelis, top1_panel, top2_panel, toppings_panel, toppings2_panel;
+    private JCheckBox picas_box;
+	public Double nauda = 0.0;
 
 	public GUI2() 
 	{
@@ -165,7 +166,18 @@ class GUI2 extends JFrame
 		toppings2_panel.add(toppings_label);
 		toppings2_panel.add(toppings_panel);
 		add(toppings2_panel);
-		
-	
+	}
+    public void Pica(){
+		pica_label = new JLabel("Picas: ");
+		pica2_Label = new JLabel("Pica: ");
+		pica_op = new JLabel();
+		pica_panel=new JPanel();
+		pica_panel.setLayout(new GridLayout(4,5));
+		DefaultComboBoxModel Picas = new DefaultComboBoxModel(new String []  {"Studentu Pica", "Kalifornijas Pica", "Havaju pica", "Zemnieku Pica", "Vistas Karija pica", "Amerikāņu pica"});
+		JComboBox picas_box = new JComboBox(Picas);
+		picas_box.setSelectedIndex(-1);
+		pica_panel.add(pica_label);
+		pica_panel.add(picas_box);
+		add(pica_panel);
 	}
 }
