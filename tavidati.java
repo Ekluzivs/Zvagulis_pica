@@ -10,6 +10,8 @@ class GUI1
 		bizness.Pica();
 		bizness.Lielums();
 		bizness.kvantitate();
+		bizness.Output();
+
 		bizness.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bizness.setLocationByPlatform(true);
 		bizness.setSize(575,500);
