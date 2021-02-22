@@ -8,7 +8,8 @@ class GUI1
 		bizness.Input();		
 		bizness.Toppings();
 		bizness.Pica();
-				
+		bizness.Lielums();
+		bizness.kvantitate();
 		bizness.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bizness.setLocationByPlatform(true);
 		bizness.setSize(575,500);

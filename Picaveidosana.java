@@ -4,18 +4,18 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-class GUI2 extends JFrame 
+class pica extends JFrame 
 {
     private JRadioButton res, pas;
     private ButtonGroup g;
-    private JLabel pica_op,pica_label,pica2_Label,adrese, V, kontakts, Galda_nr, toppings_label, piegades_tips;
+    private JLabel kvant_label, kvant_op, kvant2_label,lielums_op,lielums_label, lielums2_label,pica_op,pica_label,pica2_Label,adrese, V, kontakts, Galda_nr, toppings_label, piegades_tips;
     private JTextField Galda_tf, V_tf, adrese_tf, kontakts_tf;
     private JCheckBox sipols, sampinjones, cisini, brokolis, paprika, siers;
-    private JPanel pica_panel,sakum_Panelis, ievad_panelis, piegades_panelis, top1_panel, top2_panel, toppings_panel, toppings2_panel;
-    private JCheckBox picas_box;
+    private JPanel kvant_panel,lielums_panel,pica_panel,sakum_Panelis, ievad_panelis, piegades_panelis, top1_panel, top2_panel, toppings_panel, toppings2_panel;
+    private JCheckBox picas_box, lielums_box;
 	public Double nauda = 0.0;
 
-	public GUI2() 
+	public pica() 
 	{
 		super("Picerija");
 		setLayout(new FlowLayout(FlowLayout.CENTER, 30, 15));
@@ -178,6 +178,53 @@ class GUI2 extends JFrame
 		picas_box.setSelectedIndex(-1);
 		pica_panel.add(pica_label);
 		pica_panel.add(picas_box);
+		picas_box.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				pica_op.setText((String)((JComboBox)e.getSource()).getSelectedItem());
+			}	
+		});
 		add(pica_panel);
+	}
+	public void Lielums(){
+		lielums_label = new JLabel("lielums: ");
+		lielums2_label = new JLabel("lielums:");
+		lielums_op = new JLabel();
+		lielums_panel = new JPanel();
+		lielums_panel.setLayout(new GridLayout(3, 4));
+		DefaultComboBoxModel lielums = new DefaultComboBoxModel(new String []  {"20","30","50"});
+		JComboBox lielums_box = new JComboBox(lielums);
+		lielums_box.setSelectedIndex(-1);
+		lielums_panel.add(lielums_label);
+		lielums_panel.add(lielums_box);
+		lielums_box.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				lielums_op.setText((String)((JComboBox)e.getSource()).getSelectedItem());
+			}	
+		});
+		add(lielums_panel);
+	}
+	public void kvantitate(){
+		kvant_label = new JLabel("Kvantitāte");
+		kvant2_label = new JLabel("lielums:");
+		kvant_op = new JLabel();
+		kvant_panel = new JPanel();
+		kvant_panel.setLayout(new GridLayout(3, 4));
+		String[] kvantitate = {"1","2","3","4","5"};
+		JComboBox<String>kvant_box = new JComboBox<String>();
+		for(int i=0; i<kvantitate.length;i++)
+		kvant_box.addItem(kvantitate[i]);
+		kvant_box.setSelectedIndex(-1);
+		kvant_panel.add(kvant_label);
+		kvant_box.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e){
+				kvant_op.setText((String)((JComboBox)e.getSource()).getSelectedItem());
+			}
+		});
+		add(kvant_panel);
 	}
 }
