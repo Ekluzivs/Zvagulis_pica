@@ -57,7 +57,7 @@ class GUI2 extends JFrame
 		ievad_panelis.setLayout(new GridLayout(5, 2, 5, 5));	
 					
 		piegades_panelis = new JPanel();
-		piegades_panelis.setLayout(new GridLayout(1, 3));			
+		piegades_panelis.setLayout(new GridLayout(1, 3));		
 		
 		piegades_tips = new JLabel("pasūtījuma veids:");	
         piegades_panelis.add(piegades_tips);
@@ -91,6 +91,18 @@ class GUI2 extends JFrame
 		ievad_panelis.add(adrese_tf);
 		ievad_panelis.add(kontakts);
 		ievad_panelis.add(kontakts_tf);
+		V.setEnabled(false);
+		adrese.setEnabled(false);
+		kontakts.setEnabled(false); 
+		V_tf.setEditable(false);
+		adrese_tf.setEditable(false);
+		kontakts_tf.setEditable(false);	
+		V_tf.setEnabled(false);
+		adrese_tf.setEnabled(false);
+		kontakts_tf.setEnabled(false);
+		Galda_nr.setEnabled(false);
+		Galda_tf.setEnabled(false);					
+		Galda_tf.setEditable(false);	
 				
 		add(ievad_panelis);	
         res.addChangeListener(new ChangeListener()
@@ -132,7 +144,7 @@ class GUI2 extends JFrame
 					kontakts_tf.setEditable(true);	
 					V_tf.setEnabled(true);
 					adrese_tf.setEnabled(true);
-					kontakts_tf.setEnabled(true);				
+					kontakts_tf.setEnabled(true);
 				}
 			}
 		});								
@@ -151,14 +163,14 @@ class GUI2 extends JFrame
 		toppings2_panel = new JPanel();
 		toppings2_panel.setLayout(new GridLayout(2, 1));
 		
-		toppings_label = new JLabel("Toppings:");	
+		toppings_label = new JLabel("piedevas:");	
 		
-		sipols = new JCheckBox("Onion +0,20", false);
-		sampinjones = new JCheckBox("Mushroom +0,20", false);
-		cisini = new JCheckBox("Broccoli +0.20", false);
-		brokolis = new JCheckBox("Corn +0.20", false);
-		paprika = new JCheckBox("Capsicum +0,20", false);
-		siers = new JCheckBox("Cheese +0.20", false);
+		sipols = new JCheckBox("sīpols +0,20", false);
+		sampinjones = new JCheckBox("šampinjones +0,20", false);
+		cisini = new JCheckBox("brokoļi +0.20", false);
+		brokolis = new JCheckBox("cīsiņi +0.20", false);
+		paprika = new JCheckBox("paprika +0,20", false);
+		siers = new JCheckBox("siers +0.20", false);
 
 		ItemListener itemListener = new ItemListener()
 		{
@@ -309,25 +321,25 @@ class GUI2 extends JFrame
 		{
 			public void actionPerformed(ActionEvent e){
 				if(b == "Studentu Pica"){
-					nauda += 3.25;
+					nauda += 4.20;
 				}else if(b  == "Vistas Kariju pica"){
-					nauda += 2.34;
+					nauda += 6.46;
 				}else if(b  == "Zemnieku Pica"){
-					nauda += 3.23;
+					nauda += 5.74;
 				}else if(b  == "Havaju pica"){
-					nauda += 5.75;
+					nauda += 10.20;
 				}else if(b  == "Kalifornijas Pica"){
-					nauda += 8.42;
+					nauda += 8.32;
 				}else if(b  == "amerikāņu pica"){
-					nauda += 9.22;
+					nauda += 7.10;
 				}
 
 				if(c == "20"){
-					nauda += 2.50;
+					nauda += 2.20;
 				}else if(c  == "30"){
 					nauda += 4.50;
 				}else if(c  == "50"){
-					nauda += 7.0;
+					nauda += 7.80;
 				}
 
 				nauda *= a;
